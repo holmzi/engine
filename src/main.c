@@ -1,9 +1,8 @@
-#include <stdio.h>
 #include "logger/logger.h"
 
 LOGGER_DEFINE("Main");
 
 int main() {
-    printf(LOGGER_NAME);
+    LOGGER_LOG_INFO("Hello World!");
     return 0;
 }
