@@ -1,15 +1,16 @@
 #include <stdlib.h>
+#include "storage/storage.h"
 #include "logger/logger.h"
 
 #define INITIALIZE_OR_RETURN(function) \
-    int status = (function)();         \
+    int status = function();           \
     if (status != 0) return status
 
 LOGGER_DEFINE("Main");
 
 static int initialize() {
-    LOGGER_LOG_INFO("Initialize callback");
-    return 1;
+    INITIALIZE_OR_RETURN(StorageInitialize);
+    return 0;
 }
 
 static int process() {
